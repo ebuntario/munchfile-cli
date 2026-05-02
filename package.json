@@ -46,11 +46,7 @@
     "compile:all": "npm run compile:darwin-arm64 && npm run compile:darwin-x64 && npm run compile:linux-x64 && npm run compile:linux-arm64"
   },
   "dependencies": {
-    "chokidar": "^3.6.0",
-    "clime": "^0.3.0",
-    "node-fetch": "^3.3.2",
-    "yaml": "^2.4.0",
-    "zod": "^3.22.4"
+    "chokidar": "^3.6.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.0",

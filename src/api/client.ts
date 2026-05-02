@@ -1,5 +1,4 @@
-import type { Readable } from 'node:stream';
-import nodeFetch from 'node-fetch';
+import { Readable } from 'node:stream';
 import { getSessionToken } from '../auth/session.js';
 
 export interface ApiError {
@@ -106,15 +105,15 @@ export async function apiUpload(
   token: string,
   baseUrl: string = 'https://api.munchfile.com/v1'
 ): Promise<unknown> {
-  const response = await nodeFetch(`${baseUrl}${endpoint}`, {
+  const response = await fetch(`${baseUrl}${endpoint}`, {
     method: 'PUT',
     headers: {
       Authorization: `Bearer ${token}`,
       ...headers,
     },
-    body: stream,
-    duplex: 'half' as const,
-  } as Parameters<typeof nodeFetch>[1]);
+    body: Readable.toWeb(stream) as ReadableStream,
+    duplex: 'half',
+  } as RequestInit & { duplex: string });
 
   if (!response.ok) {
     const status = response.status;
