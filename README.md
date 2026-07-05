@@ -1,8 +1,8 @@
-# munchfile
+# MunchFile
 
 **Local files. Live on the web. Zero friction.**
 
-Point munchfile at where your files already live. No folder reorganization, no upload buttons — just URLs.
+Point MunchFile at where your files already live. No folder reorganization, no upload buttons — just URLs.
 
 ## Install
 
@@ -24,12 +24,12 @@ munchfile login your@email.com
 munchfile watch ~/Desktop/notes --recursive
 ```
 
-Every `.md` and `.html` file you save in `~/Desktop/notes` gets a permanent live URL.
+Every `.md` and `.html` file you save in `~/Desktop/notes` gets a permanent live URL. `watch` starts the background watcher automatically — there's nothing else to run.
 
 ## What it does
 
 - Watches local files via chokidar — content-hash identity, not inode tracking, so atomic writes from editors don't break URL stability.
-- Streams uploads to the munchfile API in O(64KB) memory regardless of file size.
+- Streams uploads to the MunchFile API in O(64KB) memory regardless of file size.
 - Markdown is rendered server-side (remark → rehype, sanitized).
 - Phase 1 supports `.md`, `.markdown`, `.html`, `.htm`.
 
